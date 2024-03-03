@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery MobileのCSS -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <!-- jQueryライブラリ -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- jQuery MobileのJavaScriptファイル -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head>
+  <style>
+    #sidr.open,
+    #main.open {
+      transform: translateX(50%); /* メニューを表示 */
+    }
+
+    #sidr,
+    #main {
+      transform: translateX(0); /* メニューを左側から非表示 */
+      transition: transform 0.3s; /* スムーズなアニメーション効果 */
+    }
+  </style>
+
+  <body>
+    <div id="main">
+      <div data-role="page">
+        <div data-role="header">
+          <h1>デモページ</h1>
+        </div>
+        <div role="main" class="ui-content">
+          <p>ここにコンテンツが入ります。</p>
+        </div>
+      </div>
+      <a class="simple-menu btn_menu" href="#">サイトの目次</a>
+    </div>
+    <div id="sidr">
+      <ul>
+        <li><a href="#">項目 1</a></li>
+        <li><a href="#">項目 2</a></li>
+        <li><a href="#">項目 3</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // JavaScript コードでメニューの開閉を制御
+
+    const menuButton = document.querySelector(".simple-menu");
+    const sidrMenu = document.querySelector("#sidr");
+    const mainContent = document.querySelector("#main");
+
+    menuButton.addEventListener("click", () => {
+      sidrMenu.classList.toggle("open");
+      mainContent.classList.toggle("open");
+    });
+  </script>
+</html>
